@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 5173 --strictPort",
-    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir .prerender && node scripts/prerender.mjs",
+    "build": "vite build && node scripts/prerender.mjs",
     "format": "prettier --write src scripts index.html vite.config.js package.json README.md",
     "format:check": "prettier --check src scripts index.html vite.config.js package.json README.md",
     "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort"

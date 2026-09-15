@@ -24,7 +24,15 @@ npm run preview
 
 构建会把首页预渲染为 HTML，标题、文案、团队信息直接存在于静态文件中。React 加载后接管菜单、技术步骤和行业展开交互。`src/entry-server.jsx` 仅在构建时运行，线上不需要 Node 服务、数据库或 API。
 
-以后部署到 Cloudflare Pages 时，构建命令为 `npm run build`，输出目录为 `dist`。本次仅制作本地初稿，尚未部署或修改域名。
+### Cloudflare 构建设置
+
+Cloudflare Pages：构建命令 `npm run build`，输出目录 `dist`。项目根目录应指向包含 `package.json` 的目录。
+
+Cloudflare Workers：构建命令仍为 `npm run build`；静态资源目录应指向 `dist`。保留现有 Worker 的名称和部署命令。
+
+预渲染脚本通过 Vite JavaScript API 单独构建 Node 入口，并设置 `configFile: false`，避免 Cloudflare 自动加入的部署插件改变临时构建或将部署目标改为 `.prerender`。`.prerender` 只用于生成 HTML，不是部署目录。
+
+若遇到 `Cannot find module .../.prerender/entry-server.js`，先确认已提交本次更新的 `package.json` 和 `scripts/prerender.mjs`，并让 Cloudflare 从该提交重新构建。
 
 ## 页面内容
 
