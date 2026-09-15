@@ -1,14 +1,17 @@
 import React from "react";
 import { createRoot, hydrateRoot } from "react-dom/client";
-import "@fontsource-variable/manrope";
-import "@fontsource/ibm-plex-mono/latin-400.css";
+import "@fontsource-variable/geist";
 import App from "./App.jsx";
+import { pageForPath } from "./pages.js";
 import "./styles.css";
+import "./home-sections.css";
 
 const root = document.getElementById("root");
+const page = pageForPath(window.location.pathname);
+document.title = page.title;
 const app = (
   <React.StrictMode>
-    <App />
+    <App page={page.id} />
   </React.StrictMode>
 );
 if (root.hasChildNodes()) hydrateRoot(root, app);

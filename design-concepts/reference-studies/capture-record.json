@@ -1,0 +1,74 @@
+[
+  {
+    "page": "01-cura",
+    "css_viewport": [
+      1280,
+      900
+    ],
+    "css_scroll_positions": [
+      0,
+      407.3333435,
+      1307.333374
+    ],
+    "css_page_height": 2207,
+    "raster_size": [
+      1250,
+      2180
+    ],
+    "scale": 0.9877777777777778
+  },
+  {
+    "page": "02-captura",
+    "css_viewport": [
+      1280,
+      900
+    ],
+    "css_scroll_positions": [
+      0,
+      810,
+      1443.333374
+    ],
+    "css_page_height": 2343,
+    "raster_size": [
+      1250,
+      2314
+    ],
+    "scale": 0.9877777777777778
+  },
+  {
+    "page": "03-sublime",
+    "css_viewport": [
+      1280,
+      900
+    ],
+    "css_scroll_positions": [
+      0,
+      810,
+      1260
+    ],
+    "css_page_height": 2160,
+    "raster_size": [
+      1250,
+      2134
+    ],
+    "scale": 0.9877777777777778
+  },
+  {
+    "page": "04-brimstone",
+    "css_viewport": [
+      1280,
+      900
+    ],
+    "css_scroll_positions": [
+      0,
+      810,
+      1054.666626
+    ],
+    "css_page_height": 1955,
+    "raster_size": [
+      1250,
+      1931
+    ],
+    "scale": 0.9877777777777778
+  }
+]

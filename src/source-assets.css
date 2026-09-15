@@ -1,0 +1,499 @@
+/* Photography and the ORC schematic follow the same neutral/red system. */
+.hero-energy-image {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: #33383a;
+}
+.hero-energy-image > img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-position: 51% 50%;
+  filter: saturate(0.55) contrast(1.04);
+  transform: translateY(var(--image-travel, 0px)) scale(1.12);
+}
+.hero-energy-image::after {
+  content: "";
+  position: absolute;
+  inset: 55% 0 0;
+  background: linear-gradient(transparent, #1116188c);
+  z-index: 1;
+  pointer-events: none;
+}
+.hero-image-caption {
+  position: absolute;
+  z-index: 2;
+  bottom: 25px;
+  left: 26px;
+  right: 26px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hero-image-caption > span:last-child {
+  font-size: 24px;
+}
+.value-chain {
+  margin-top: 78px;
+}
+.value-chain > .eyebrow {
+  margin-bottom: 25px;
+  color: var(--muted);
+}
+.value-chain ol {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.value-chain li {
+  padding: 20px 26px 0;
+  border-left: 1px solid var(--line);
+}
+.value-chain li:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+.value-chain li:last-child {
+  padding-right: 0;
+}
+.value-chain-number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font:
+    11px "IBM Plex Mono",
+    monospace;
+}
+.value-chain-number > span {
+  color: var(--red);
+  font:
+    25px "Geist Variable",
+    sans-serif;
+}
+.value-chain h3 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 21px;
+  letter-spacing: -0.03em;
+}
+.value-chain li p {
+  max-width: 230px;
+  color: var(--muted);
+  font-size: 15px;
+}
+.material-story {
+  margin-top: 78px;
+  position: relative;
+  min-height: 460px;
+  overflow: hidden;
+  background: #252a2c;
+  color: white;
+}
+.material-surface {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.material-surface img {
+  width: 100%;
+  height: 100%;
+  object-position: 50% 47%;
+  filter: saturate(0.45);
+  transform: translateY(var(--image-travel, 0px)) scale(1.1);
+}
+.material-story::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #171c20c9, #171c2066 60%, #171c2011);
+  pointer-events: none;
+}
+.material-story figcaption {
+  position: relative;
+  z-index: 1;
+  min-height: inherit;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.material-story figcaption > p {
+  font-size: clamp(36px, 4.3vw, 65px);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  margin-top: auto;
+  padding-top: 80px;
+}
+.material-caption-detail {
+  margin-top: 24px;
+  font-size: 14px;
+  color: #ffffffc9;
+}
+.industry-photo {
+  position: relative;
+  min-width: 0;
+  height: 510px;
+  overflow: hidden;
+  background: var(--surface);
+}
+.industry-photo > img {
+  width: 100%;
+  height: 100%;
+  filter: saturate(0.45);
+  animation: image-enter 0.45s ease-out;
+}
+@keyframes image-enter {
+  from {
+    opacity: 0.4;
+    transform: scale(1.035);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.industry-photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #22282beb;
+  color: white;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.industry-photo-caption > span:last-child {
+  font-size: 14px;
+}
+.industry-photo-caption .eyebrow {
+  font-size: 10px;
+  color: #c7d0d5;
+}
+.portrait {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #dde0e1;
+}
+.portrait img {
+  width: 100%;
+  height: 100%;
+  filter: grayscale(1);
+  object-position: center 36%;
+  transition:
+    filter 0.45s,
+    transform 0.6s;
+}
+.team-member:hover .portrait img {
+  filter: grayscale(0);
+  transform: scale(1.025);
+}
+/* Schematic: no product rendering or unverified performance data. */
+.orc-visual {
+  --diagram-bg: #2b3032;
+  width: 100%;
+  min-width: 0;
+  color: #b7c0c5;
+  background: var(--diagram-bg);
+  border: 1px solid #4b5357;
+}
+.orc-heading {
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #4b5357;
+}
+.orc-heading > span:last-child {
+  font-size: 25px;
+  line-height: 1;
+}
+.orc-heading .eyebrow {
+  font-size: 10px;
+  color: #d9dfe1;
+}
+.orc-circuit {
+  position: relative;
+  height: 355px;
+  margin: 0 12px;
+}
+.orc-pipes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.orc-pipe {
+  stroke: #59666d;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+.orc-flow {
+  stroke: #ed7064;
+  stroke-width: 1.5;
+  stroke-dasharray: 5 12;
+  animation: fluid-flow 4s linear 1;
+  vector-effect: non-scaling-stroke;
+}
+@keyframes fluid-flow {
+  from {
+    stroke-dashoffset: 85;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.orc-part {
+  position: absolute;
+  top: 26%;
+  width: 46%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.part-evaporator,
+.part-pump {
+  left: 25%;
+}
+.part-expander,
+.part-condenser {
+  left: 75%;
+}
+.part-pump,
+.part-condenser {
+  top: 78%;
+}
+.orc-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--diagram-bg);
+  display: grid;
+  place-items: center;
+}
+.orc-icon svg {
+  width: 58px;
+  height: 58px;
+}
+.orc-part-name {
+  font-size: 13px;
+  line-height: 1.3;
+  text-align: center;
+  margin-top: 6px;
+  padding: 2px 5px;
+  background: var(--diagram-bg);
+  color: #c7d0d5;
+}
+.orc-part-note {
+  font-size: 10px;
+  line-height: 1.5;
+  margin-top: 3px;
+  padding: 1px 4px;
+  background: var(--diagram-bg);
+  text-align: center;
+}
+.orc-part.is-active {
+  color: #ff8d81;
+}
+.orc-part.is-active .orc-part-name {
+  color: white;
+}
+.orc-part.is-active .orc-icon {
+  border: 1px solid #ef796c;
+}
+.orc-center-label {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font:
+    9px "IBM Plex Mono",
+    monospace;
+  letter-spacing: 0.12em;
+  color: #ccd3d7;
+  white-space: nowrap;
+}
+.orc-caption {
+  padding: 20px 26px;
+  border-top: 1px solid #4b5357;
+}
+.orc-caption > span {
+  font:
+    10px "IBM Plex Mono",
+    monospace;
+  color: #ff968b;
+  letter-spacing: 0.04em;
+}
+.orc-caption p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #c7d0d5;
+}
+@media (max-width: 1100px) {
+  .value-chain li {
+    padding-inline: 18px;
+  }
+  .value-chain h3 {
+    font-size: 18px;
+  }
+  .orc-circuit {
+    height: 325px;
+    margin-inline: 4px;
+  }
+  .orc-part-name {
+    font-size: 12px;
+  }
+  .orc-part-note {
+    font-size: 9px;
+  }
+  .orc-caption,
+  .orc-heading {
+    padding-inline: 20px;
+  }
+  .industry-photo {
+    height: 480px;
+  }
+}
+@media (max-width: 760px) {
+  .hero-energy-image {
+    height: 350px;
+  }
+  .hero-energy-image > img {
+    object-position: 50% 52%;
+  }
+  .hero-image-caption {
+    left: 22px;
+    right: 22px;
+    bottom: 19px;
+  }
+  .value-chain {
+    margin-top: 50px;
+  }
+  .value-chain ol {
+    grid-template-columns: 1fr 1fr;
+  }
+  .value-chain li {
+    padding: 20px 20px 26px;
+  }
+  .value-chain li:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .value-chain li:nth-child(even) {
+    padding-right: 0;
+  }
+  .value-chain li:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+  .value-chain h3 {
+    font-size: 20px;
+    margin-top: 22px;
+  }
+  .value-chain li p {
+    font-size: 14px;
+  }
+  .material-story {
+    margin-top: 40px;
+    min-height: 420px;
+  }
+  .material-story figcaption {
+    padding: 26px;
+  }
+  .material-story .eyebrow {
+    max-width: 260px;
+    font-size: 10px;
+  }
+  .material-story figcaption > p {
+    font-size: clamp(32px, 6.5vw, 48px);
+  }
+  .material-story::after {
+    background: linear-gradient(0deg, #171c20dc, #171c2033);
+  }
+  .orc-circuit {
+    height: 340px;
+  }
+  .orc-part-name {
+    font-size: 13px;
+  }
+  .orc-part-note {
+    font-size: 10px;
+  }
+  .industry-photo {
+    height: 400px;
+  }
+  .industry-photo-caption {
+    padding: 19px 22px;
+  }
+  .portrait {
+    aspect-ratio: 4 / 5;
+  }
+}
+@media (max-width: 390px) {
+  .hero-energy-image {
+    height: 290px;
+  }
+  .value-chain h3 {
+    font-size: 18px;
+  }
+  .material-story figcaption {
+    padding: 22px;
+  }
+  .material-story figcaption > p {
+    font-size: 31px;
+  }
+  .orc-circuit {
+    height: 320px;
+  }
+  .orc-icon,
+  .orc-icon svg {
+    width: 50px;
+    height: 50px;
+  }
+  .orc-part-name {
+    font-size: 11px;
+  }
+  .orc-part-note {
+    font-size: 9px;
+  }
+  .orc-center-label {
+    font-size: 8px;
+  }
+  .orc-caption,
+  .orc-heading {
+    padding-inline: 18px;
+  }
+  .orc-heading .eyebrow {
+    font-size: 9px;
+  }
+  .orc-caption p {
+    font-size: 13px;
+  }
+  .industry-photo {
+    height: 340px;
+  }
+  .industry-photo-caption {
+    gap: 14px;
+    padding: 18px;
+  }
+  .industry-photo-caption > span:last-child {
+    font-size: 12px;
+  }
+  .industry-photo-caption .eyebrow {
+    font-size: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-parallax] img {
+    transform: none !important;
+  }
+}

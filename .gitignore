@@ -3,3 +3,4 @@ dist/
 .prerender/
 .npm-cache/
 *.local
+raw_assets

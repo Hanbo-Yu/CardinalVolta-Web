@@ -1,0 +1,114 @@
+[
+  {
+    "source": "landing_page_bg.jpg",
+    "output": "heat-flow-960.webp",
+    "width": 960,
+    "height": 720,
+    "bytes": 44188
+  },
+  {
+    "source": "landing_page_bg.jpg",
+    "output": "heat-flow-1600.webp",
+    "width": 1600,
+    "height": 1200,
+    "bytes": 86874
+  },
+  {
+    "source": "landing_page_bg.jpg",
+    "output": "heat-flow-2200.webp",
+    "width": 2200,
+    "height": 1650,
+    "bytes": 132160
+  },
+  {
+    "source": "Copper1.jpg",
+    "output": "copper-surface-960.webp",
+    "width": 960,
+    "height": 639,
+    "bytes": 59492
+  },
+  {
+    "source": "Copper1.jpg",
+    "output": "copper-surface-1920.webp",
+    "width": 1920,
+    "height": 1278,
+    "bytes": 151880
+  },
+  {
+    "source": "Power meter.jpg",
+    "output": "power-meter-800.webp",
+    "width": 800,
+    "height": 551,
+    "bytes": 48250
+  },
+  {
+    "source": "Steel1.jpg",
+    "output": "industry-steel-640.webp",
+    "width": 640,
+    "height": 480,
+    "bytes": 144568
+  },
+  {
+    "source": "Steel1.jpg",
+    "output": "industry-steel-1280.webp",
+    "width": 1280,
+    "height": 960,
+    "bytes": 473328
+  },
+  {
+    "source": "dl.beatsnoop.com-final-73HrDyjKNs.jpg",
+    "output": "industry-cement-640.webp",
+    "width": 640,
+    "height": 408,
+    "bytes": 53016
+  },
+  {
+    "source": "dl.beatsnoop.com-final-73HrDyjKNs.jpg",
+    "output": "industry-cement-1280.webp",
+    "width": 1280,
+    "height": 816,
+    "bytes": 146306
+  },
+  {
+    "source": "Petrochemical.jpg",
+    "output": "industry-chemical-640.webp",
+    "width": 640,
+    "height": 960,
+    "bytes": 96398
+  },
+  {
+    "source": "Petrochemical.jpg",
+    "output": "industry-chemical-1280.webp",
+    "width": 1280,
+    "height": 1920,
+    "bytes": 294770
+  },
+  {
+    "source": "dl.beatsnoop.com-final-1e7raApYvB.jpg",
+    "output": "industry-paper-640.webp",
+    "width": 640,
+    "height": 408,
+    "bytes": 9874
+  },
+  {
+    "source": "dl.beatsnoop.com-final-1e7raApYvB.jpg",
+    "output": "industry-paper-1280.webp",
+    "width": 1280,
+    "height": 816,
+    "bytes": 25338
+  },
+  {
+    "source": "Nan Ge_Photo.jpg",
+    "output": "nan-ge-original-450.webp",
+    "width": 450,
+    "height": 450,
+    "bytes": 16638
+  },
+  {
+    "source": "Aimy-Bazylak-Photo-768x512_Cropped.jpg",
+    "output": "aimy-bazylak-original-405.webp",
+    "width": 405,
+    "height": 420,
+    "bytes": 17306
+  }
+]

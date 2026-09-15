@@ -2,4 +2,4 @@
 import { renderToString } from "react-dom/server";
 import App from "./App.jsx";
 
-export const render = () => renderToString(<App />);
+export const render = (page = "home") => renderToString(<App page={page} />);

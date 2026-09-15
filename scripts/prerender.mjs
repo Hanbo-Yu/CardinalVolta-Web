@@ -1,7 +1,8 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { build } from "vite";
 import react from "@vitejs/plugin-react";
+import { pages } from "../src/pages.js";
 
 const projectRoot = fileURLToPath(new URL("../", import.meta.url));
 const serverEntry = new URL("../.prerender/entry-server.js", import.meta.url);
@@ -31,8 +32,27 @@ const template = await readFile(index, "utf8");
 const placeholder = '<div id="root"></div>';
 if (!template.includes(placeholder))
   throw new Error("Root placeholder missing.");
-await writeFile(
-  index,
-  template.replace(placeholder, `<div id="root">${render()}</div>`),
-);
-console.log("Pre-rendered the homepage into static HTML.");
+const escapeHtml = (text) =>
+  text
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+for (const page of pages) {
+  const directory = new URL(`../dist${page.path}`, import.meta.url);
+  await mkdir(directory, { recursive: true });
+  const html = template
+    .replace(
+      /<title>[^<]*<\/title>/,
+      `<title>${escapeHtml(page.title)}</title>`,
+    )
+    .replace(
+      "</head>",
+      page.sample
+        ? '<meta name="robots" content="noindex,follow" /></head>'
+        : "</head>",
+    )
+    .replace(placeholder, `<div id="root">${render(page.id)}</div>`);
+  await writeFile(new URL("index.html", directory), html);
+  console.log(`Pre-rendered ${page.path} into static HTML.`);
+}
