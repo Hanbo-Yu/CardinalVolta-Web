@@ -1,53 +1,8 @@
 import { useState } from "react";
+import IndustryOrbit from "./IndustryOrbit.jsx";
 import { industries, partners, focusAreas } from "./home-content.js";
 import { newsItems } from "./content.js";
 import { SampleLabel } from "./News.jsx";
-
-export function Opportunity() {
-  return (
-    <section
-      className="opportunity shell"
-      aria-labelledby="opportunity-title"
-      data-scroll-story
-    >
-      <p className="section-title">The opportunity</p>
-      <div className="opportunity-copy">
-        <h2 id="opportunity-title">
-          Industry runs on heat.
-          <br />
-          <span className="opportunity-fill">
-            More of it can
-            <br />
-            go further.
-          </span>
-        </h2>
-        <p>
-          Across industrial processes, heat moves through equipment, materials
-          and cooling systems. We see an opportunity to give some of that energy
-          a second life — as electricity.
-        </p>
-      </div>
-      <div className="energy-trace" aria-hidden="true">
-        <svg viewBox="0 0 1120 180" preserveAspectRatio="none">
-          <path
-            className="trace-base"
-            d="M0 30H290C350 30 340 145 410 145H660C730 145 720 30 780 30H1120"
-          />
-          <path
-            className="trace-progress"
-            pathLength="1"
-            d="M0 30H290C350 30 340 145 410 145H660C730 145 720 30 780 30H1120"
-          />
-        </svg>
-        <div className="trace-labels">
-          <span>Industrial heat</span>
-          <span>Recovery</span>
-          <span>Electricity ↗</span>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function FocusDrawing({ type }) {
   return (
@@ -144,28 +99,13 @@ export function IndustryExplorer() {
           </p>
         </div>
         <div className="industry-layout">
-          <div className="industry-image-stage">
-            {industries.map((item) => (
-              <figure
-                key={item.id}
-                className={`industry-image ${active === item.id ? "is-active" : ""}`}
-                aria-hidden={active !== item.id}
-              >
-                <img
-                  src={`/assets/${item.image}-1280.webp`}
-                  srcSet={`/assets/${item.image}-640.webp 640w, /assets/${item.image}-1280.webp 1280w`}
-                  sizes="(max-width: 760px) 100vw, 55vw"
-                  alt={item.alt}
-                  style={{ objectPosition: item.position }}
-                  loading="lazy"
-                  width="1280"
-                  height="960"
-                />
-                <figcaption>{item.theme}</figcaption>
-              </figure>
-            ))}
-            <span className="industry-image-note">Industry imagery</span>
-          </div>
+          <IndustryOrbit
+            active={active}
+            onSelect={(id) => {
+              setActive(id);
+              setOpen(true);
+            }}
+          />
           <div className="industry-drawers">
             {industries.map((item) => {
               const expanded = active === item.id && open;
@@ -233,12 +173,7 @@ export function PartnerNetwork() {
   return (
     <section className="partner-network shell" aria-labelledby="partners-title">
       <div className="partners-heading" data-reveal>
-        <p className="section-title">Our network</p>
-        <h2 id="partners-title">
-          Progress takes
-          <br />
-          <span>partners.</span>
-        </h2>
+        <h2 id="partners-title">Our partners</h2>
       </div>
       <ul
         className="partner-field"

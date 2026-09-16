@@ -1,11 +1,11 @@
 :root {
-  --paper: #f5f6f4;
-  --ink: #25292a;
+  --paper: #f4f5f6;
+  --ink: #20252a;
   --red: #d72323;
-  --wine: #411f27;
-  --rose: #edc9bd;
-  --muted: #606565;
-  --line: #cdd1ce;
+  --graphite: #191e23;
+  --silver: #d3d9df;
+  --muted: #5e6770;
+  --line: #cbd1d7;
 }
 * {
   box-sizing: border-box;
@@ -86,7 +86,7 @@ h3 {
   font-size: 15px;
 }
 .nav .contact {
-  border: 1px solid #a8adaa;
+  border: 1px solid #a7afb7;
   padding: 11px 22px;
   border-radius: 3px;
   margin-left: 10px;
@@ -132,7 +132,7 @@ h3 {
   line-height: 1;
 }
 .technology {
-  background: var(--wine);
+  background: var(--graphite);
   color: var(--paper);
   padding-block: 58px 80px;
 }
@@ -144,30 +144,30 @@ h3 {
 .technology h2 {
   font-size: clamp(48px, 5.2vw, 76px);
   max-width: 900px;
-  color: var(--rose);
+  color: var(--silver);
 }
 .technology .section-title {
   padding-top: 12px;
-  color: var(--rose);
+  color: var(--silver);
 }
 .tech-intro {
   margin: 34px 0 56px calc((100% - 40px) / 4 + 40px);
   max-width: 580px;
   font-size: 20px;
-  color: #efe3df;
+  color: #e1e5e9;
   letter-spacing: -0.015em;
 }
 .stages {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid #80555c;
+  border-top: 1px solid #48515a;
 }
 .stage {
   padding: 31px 36px 0 0;
 }
 .stage + .stage {
   padding-left: 36px;
-  border-left: 1px solid #80555c;
+  border-left: 1px solid #48515a;
 }
 .stage h3 {
   font-size: 32px;
@@ -176,7 +176,7 @@ h3 {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
-  color: var(--rose);
+  color: var(--silver);
 }
 .stage h3 span {
   font-size: 22px;
@@ -186,11 +186,11 @@ h3 {
   max-width: 300px;
   font-size: 16px;
   line-height: 1.6;
-  color: #e2d3cf;
+  color: #bbc3cb;
 }
 .applications {
   padding-block: 98px 102px;
-  background: #e9ece9;
+  background: #e7eaed;
 }
 .app-grid {
   display: grid;
@@ -213,19 +213,19 @@ h3 {
   list-style: none;
   padding: 0;
   margin: 46px 0 0;
-  border-top: 1px solid #b9c1bc;
+  border-top: 1px solid #bac2c9;
   max-width: 425px;
 }
 .industry-list li {
   font-size: 20px;
-  border-bottom: 1px solid #b9c1bc;
+  border-bottom: 1px solid #bac2c9;
   padding: 13px 0;
   display: flex;
   justify-content: space-between;
 }
 .industry-list span {
   font-size: 14px;
-  color: #626b66;
+  color: #606b75;
 }
 .app-photo img {
   width: 100%;
@@ -240,7 +240,7 @@ h3 {
   justify-content: space-between;
   margin-top: 15px;
   font-size: 13px;
-  color: #59635d;
+  color: #596570;
 }
 .team {
   padding-block: 88px 92px;
@@ -305,34 +305,6 @@ h3 {
 .news h2 {
   font-size: 52px;
 }
-.footer {
-  padding-block: 72px 32px;
-  background: var(--wine);
-  color: var(--paper);
-}
-.footer-top {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 45px;
-}
-.footer h2 {
-  font-size: 76px;
-  color: var(--rose);
-}
-.footer .text-link {
-  font-size: 18px;
-}
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  border-top: 1px solid #80555c;
-  margin-top: 70px;
-  padding-top: 23px;
-  font-size: 14px;
-  color: #d5beba;
-}
 @media (min-width: 1600px) {
   .hero {
     padding-top: 100px;
@@ -362,9 +334,6 @@ h3 {
   .app-copy h2,
   .team h2 {
     font-size: 52px;
-  }
-  .footer h2 {
-    font-size: 64px;
   }
   .hero p {
     max-width: 480px;
@@ -443,7 +412,7 @@ h3 {
   .stage + .stage {
     padding: 23px 0;
     border-left: 0;
-    border-bottom: 1px solid #80555c;
+    border-bottom: 1px solid #48515a;
   }
   .stage:last-child {
     padding-bottom: 0;
@@ -518,26 +487,6 @@ h3 {
   }
   .news-head {
     gap: 20px;
-  }
-  .footer {
-    padding-block: 50px 26px;
-  }
-  .footer-top {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 36px;
-  }
-  .footer h2 {
-    font-size: 54px;
-  }
-  .footer .text-link {
-    font-size: 16px;
-    white-space: normal;
-    overflow-wrap: anywhere;
-  }
-  .footer-bottom {
-    margin-top: 44px;
-    font-size: 12px;
   }
 }
 @media (max-width: 360px) {
@@ -664,8 +613,8 @@ h3 {
   line-height: 1.5;
 }
 .news-feature {
-  background: var(--wine);
-  color: var(--rose);
+  background: var(--graphite);
+  color: var(--silver);
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 45px;
@@ -678,7 +627,7 @@ h3 {
 .news-feature-meta time {
   display: block;
   margin-top: 22px;
-  color: #e2d3cf;
+  color: #bbc3cb;
 }
 .news-feature-copy {
   min-width: 0;
@@ -691,7 +640,7 @@ h3 {
 }
 .news-feature-copy > p {
   font-size: 20px;
-  color: #efe3df;
+  color: #e1e5e9;
   max-width: 600px;
   margin: 26px 0 32px;
 }
@@ -843,7 +792,7 @@ h3 {
   margin-bottom: 35px;
 }
 .feature-byline .sample-label {
-  color: var(--rose);
+  color: var(--silver);
 }
 .news-feature--illustrated h2 {
   font-size: 52px;
@@ -1145,7 +1094,7 @@ h3 {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  background: var(--wine);
+  background: var(--graphite);
   height: 100%;
 }
 .film-poster,
@@ -1190,14 +1139,14 @@ h3 {
   padding: 9px 15px;
   border: 1px solid #ffffff70;
   border-radius: 30px;
-  background: #25292a99;
+  background: #20252a99;
   color: white;
   font-size: 13px;
   cursor: pointer;
   backdrop-filter: blur(8px);
 }
 .film-toggle:hover {
-  background: #25292a;
+  background: #20252a;
 }
 .film-toggle:focus-visible {
   outline: 2px solid white;
@@ -1240,7 +1189,7 @@ h3 {
 }
 .header-overlay .nav .contact:hover {
   background: var(--paper);
-  color: var(--wine);
+  color: var(--graphite);
   text-decoration: none;
 }
 .hero-integrated {
@@ -1252,7 +1201,7 @@ h3 {
   max-height: 1080px;
   padding: 0;
   color: var(--paper);
-  background: var(--wine);
+  background: var(--graphite);
 }
 .hero-film {
   position: absolute;
@@ -1269,12 +1218,12 @@ h3 {
   background:
     linear-gradient(
       180deg,
-      #11191a88 0%,
-      #11191a08 25%,
-      #251b2440 52%,
-      var(--wine) 100%
+      #11171d88 0%,
+      #11171d08 25%,
+      #191e2340 52%,
+      var(--graphite) 100%
     ),
-    linear-gradient(90deg, #11171980, #11171915 85%);
+    linear-gradient(90deg, #11171d80, #11171d15 85%);
 }
 .hero-film .film-toggle,
 .hero-film .film-error {
@@ -1303,7 +1252,7 @@ h3 {
   animation: hero-enter 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 .hero-integrated h1 span {
-  color: var(--rose);
+  color: var(--silver);
 }
 .hero-integrated .hero-bottom {
   margin-top: 40px;
@@ -1314,13 +1263,13 @@ h3 {
   font-size: 20px;
   line-height: 1.5;
   max-width: 495px;
-  color: #f0e8e5;
+  color: #e6eaee;
 }
 .hero-integrated .text-link {
   margin-bottom: 4px;
 }
 .energy-story {
-  background: var(--wine);
+  background: var(--graphite);
   color: var(--paper);
 }
 .energy-story .technology {
@@ -1337,7 +1286,7 @@ h3 {
 }
 .technology-opening h2 {
   font-size: clamp(44px, 5.2vw, 76px);
-  color: var(--rose);
+  color: var(--silver);
 }
 .mechanism-layout {
   display: grid;
@@ -1349,7 +1298,7 @@ h3 {
   font-size: 21px;
   line-height: 1.5;
   margin: 0 0 32px;
-  color: #f1e5e1;
+  color: #e1e5e9;
   max-width: 420px;
 }
 .mechanism-copy .stages {
@@ -1365,13 +1314,13 @@ h3 {
 .mechanism-copy .stage h3 {
   font-size: 26px;
   margin-bottom: 9px;
-  color: var(--rose);
+  color: var(--silver);
 }
 .mechanism-copy .stage p {
   font-size: 15px;
   line-height: 1.55;
   max-width: 360px;
-  color: #e2d3cf;
+  color: #bbc3cb;
 }
 .mechanism-visual {
   align-self: stretch;
@@ -1385,7 +1334,7 @@ h3 {
   min-height: 100%;
 }
 .mechanism-film .film-shade {
-  background: linear-gradient(180deg, #411f2700 60%, #411f2755);
+  background: linear-gradient(180deg, #191e2300 60%, #191e2355);
 }
 .energy-story .applications {
   background: transparent;
@@ -1400,17 +1349,17 @@ h3 {
   border-top: 1px solid #ffffff33;
 }
 .applications-intro .section-title {
-  color: var(--rose);
+  color: var(--silver);
 }
 .applications-intro h2 {
   font-size: clamp(40px, 4.5vw, 64px);
   margin-top: 24px;
-  color: var(--rose);
+  color: var(--silver);
 }
 .applications-intro > p {
   font-size: 20px;
   max-width: 410px;
-  color: #e2d3cf;
+  color: #bbc3cb;
 }
 .energy-story .industry-list {
   display: grid;

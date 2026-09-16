@@ -1,12 +1,13 @@
 import {
-  Opportunity,
   FocusStory,
   IndustryExplorer,
   PartnerNetwork,
   HomeNews,
 } from "./HomeSections.jsx";
+import Opportunity from "./Opportunity.jsx";
+import TechnologySection from "./TechnologySection.jsx";
 import usePageMotion from "./usePageMotion.js";
-import { Header, Footer } from "./SiteLayout.jsx";
+import { Header, Footer, ContactInvitation } from "./SiteLayout.jsx";
 import { NewsPage } from "./News.jsx";
 import NewsArticle from "./NewsArticle.jsx";
 import AmbientVideo from "./AmbientVideo.jsx";
@@ -56,68 +57,7 @@ export default function App({ page = "home" }) {
             </section>
             <div className="energy-story">
               <Opportunity />
-              <section
-                className="technology"
-                id="technology"
-                aria-labelledby="tech-title"
-              >
-                <div className="shell">
-                  <div className="technology-opening" data-reveal>
-                    <p className="section-title">Technology</p>
-                    <h2 id="tech-title">
-                      A useful next chapter
-                      <br />
-                      for industrial heat.
-                    </h2>
-                  </div>
-                  <div className="mechanism-layout">
-                    <div className="mechanism-copy" data-reveal>
-                      <p className="tech-intro">
-                        Our approach uses the Organic Rankine Cycle to convert
-                        recovered heat into electricity.
-                      </p>
-                      <div className="stages">
-                        <div className="stage">
-                          <h3>
-                            Recover heat <span aria-hidden="true">→</span>
-                          </h3>
-                          <p>
-                            Transfer heat from an industrial process to a
-                            working fluid.
-                          </p>
-                        </div>
-                        <div className="stage">
-                          <h3>
-                            Generate power <span aria-hidden="true">→</span>
-                          </h3>
-                          <p>
-                            Expand the heated working fluid to drive a generator
-                            and produce electricity.
-                          </p>
-                        </div>
-                        <div className="stage">
-                          <h3>
-                            Continue the cycle <span aria-hidden="true">↻</span>
-                          </h3>
-                          <p>
-                            Condense and pump the working fluid back through the
-                            closed loop.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="mechanism-visual" data-reveal>
-                      <AmbientVideo
-                        className="mechanism-film"
-                        src="/assets/pipe.mp4"
-                        poster="/assets/pipe-poster.webp"
-                        label="industrial pipe video"
-                        caption="Industrial context"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </section>
+              <TechnologySection />
             </div>
             <FocusStory />
             <IndustryExplorer />
@@ -126,13 +66,8 @@ export default function App({ page = "home" }) {
               id="about"
               aria-labelledby="about-title"
             >
-              <p className="section-title">About Cardinal Volta</p>
               <div className="team-intro" data-reveal>
-                <h2 id="about-title">
-                  Research.
-                  <br />
-                  With a purpose.
-                </h2>
+                <h2 id="about-title">About us</h2>
                 <p>
                   Founded by Nan Ge and Aimy Bazylak, Cardinal Volta brings
                   energy research and engineering together in Toronto.
@@ -180,6 +115,7 @@ export default function App({ page = "home" }) {
           </>
         )}
       </main>
+      <ContactInvitation />
       <Footer />
     </>
   );

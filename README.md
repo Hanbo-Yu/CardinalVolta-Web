@@ -92,3 +92,9 @@ The perspective cards explain the approach, without claims of proprietary advant
 Motion includes scroll-linked text/line progress, native sticky card layering, image reveals, drawer expansion and editorial image hover. No animation dependency is added. Reduced-motion preferences disable those transitions and sticky stacking; plain server-rendered content stays readable.
 
 On phones, each industry image moves inside its own drawer so it stays next to the explanation. Short landscape viewports use normal card flow to keep all text accessible.
+
+## Footer styling
+
+SiteLayout.jsx contains the shared footer. footer.css controls the invitation, left-aligned 280px official logo, three desktop information columns, responsive layout and hover motion. cardinal-volta-logo-footer.svg preserves the original symbol and letter shapes, uses the approved light wordmark, and removes only the transparent outer margin.
+
+The phone number and office-address line are visual placeholders. footerSocials and footerLegal have null destinations; replace null with actual URLs when ready. Unset destinations appear as disabled link text and do not navigate to invented accounts or empty policy pages. The email, internal navigation, brand home link and back-to-top link are functional. The footer is shared by the homepage, news and article pages.

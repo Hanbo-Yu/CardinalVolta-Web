@@ -5,7 +5,7 @@
   --story-progress: 1;
 }
 .opportunity > .section-title {
-  color: var(--rose);
+  color: var(--silver);
 }
 .opportunity-copy {
   margin: 40px 0 0 20%;
@@ -14,16 +14,16 @@
   font-size: clamp(52px, 6.4vw, 96px);
   letter-spacing: -0.055em;
   line-height: 1.06;
-  color: #f4e9e4;
+  color: #f4f5f6;
 }
 .opportunity-fill {
-  color: #c49e98;
+  color: #85919d;
 }
 .opportunity-copy > p {
   max-width: 470px;
   margin: 38px 0 0 auto;
   font-size: 20px;
-  color: #e2d3cf;
+  color: #bbc3cb;
 }
 .energy-trace {
   position: relative;
@@ -41,14 +41,14 @@
   stroke: #ffffff24;
 }
 .trace-progress {
-  stroke: var(--rose);
+  stroke: var(--silver);
   stroke-dasharray: 1;
   stroke-dashoffset: calc(1 - var(--story-progress));
 }
 .trace-labels {
   display: flex;
   justify-content: space-between;
-  color: var(--rose);
+  color: var(--silver);
   font-size: 14px;
   margin-top: -10px;
 }
@@ -107,20 +107,20 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: var(--wine);
-  color: var(--rose);
+  background: var(--graphite);
+  color: var(--silver);
   border-radius: 2px;
-  box-shadow: 0 -12px 35px #25292a0a;
+  box-shadow: 0 -12px 35px #20252a0a;
 }
 .focus-card-1 {
   top: 96px;
-  background: #c6302d;
-  color: #fff3ed;
+  background: var(--red);
+  color: #ffffff;
 }
 .focus-card-2 {
   top: 122px;
-  background: #edc9bd;
-  color: var(--wine);
+  background: #d3d9df;
+  color: var(--graphite);
 }
 .focus-card-heading {
   display: flex;
@@ -160,7 +160,7 @@
 }
 .industry-explorer {
   padding-block: 95px 100px;
-  background: #e7eae7;
+  background: #e7eaed;
   color: var(--ink);
   scroll-margin-top: 25px;
 }
@@ -179,7 +179,7 @@
   line-height: 1.08;
 }
 .industry-heading h2 span {
-  color: #66706b;
+  color: #64717d;
 }
 .industry-heading > p:not(.section-title) {
   font-size: 19px;
@@ -196,7 +196,7 @@
   position: relative;
   height: 590px;
   overflow: hidden;
-  background: #313b36;
+  background: #303b45;
   isolation: isolate;
 }
 .industry-image {
@@ -217,7 +217,7 @@
   content: "";
   position: absolute;
   inset: 50% 0 0;
-  background: linear-gradient(transparent, #111b18b3);
+  background: linear-gradient(transparent, #11171db3);
   pointer-events: none;
 }
 .industry-image img {
@@ -246,14 +246,14 @@
   z-index: 3;
   bottom: 26px;
   left: 30px;
-  color: #f1f4f0;
+  color: #f0f3f6;
   font-size: 12px;
 }
 .industry-drawer {
-  border-top: 1px solid #aab2ac;
+  border-top: 1px solid #abb4bd;
 }
 .industry-drawer:last-child {
-  border-bottom: 1px solid #aab2ac;
+  border-bottom: 1px solid #abb4bd;
 }
 .industry-drawer h3 {
   margin: 0;
@@ -327,7 +327,7 @@
 .industry-panel p {
   font-size: 16px;
   line-height: 1.6;
-  color: #58625c;
+  color: #586570;
   max-width: 400px;
 }
 .industry-enquiry {
@@ -335,7 +335,7 @@
   align-items: center;
   gap: 28px;
   margin: 25px 0 29px;
-  border-bottom: 1px solid #939c96;
+  border-bottom: 1px solid #929da8;
   padding-bottom: 7px;
   font-size: 14px;
 }
@@ -506,12 +506,6 @@
 .journal-small-image:hover img {
   transform: scale(1.06);
 }
-.contact-invitation {
-  max-width: 500px;
-  font-size: 20px;
-  color: #e2d3cf;
-  margin-bottom: 50px;
-}
 @media (min-width: 761px) {
   .energy-story .technology {
     padding-bottom: 100px;
@@ -519,7 +513,7 @@
 }
 @supports (background-clip: text) {
   .opportunity-fill {
-    background: linear-gradient(90deg, #fff3ec 0 50%, #c49e98 50% 100%);
+    background: linear-gradient(90deg, #f4f5f6 0 50%, #85919d 50% 100%);
     background-size: 200% 100%;
     background-position-x: calc(100% - var(--story-progress) * 100%);
     background-clip: text;
@@ -744,10 +738,6 @@
   .journal-small h3 {
     font-size: 27px;
   }
-  .contact-invitation {
-    font-size: 18px;
-    margin-bottom: 35px;
-  }
 }
 @media (max-width: 370px) {
   .focus-card {
@@ -772,7 +762,7 @@
   }
   .opportunity-fill {
     background: none;
-    color: var(--rose);
+    color: var(--silver);
   }
   .focus-card,
   .focus-heading {

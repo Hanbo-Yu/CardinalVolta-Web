@@ -1,0 +1,176 @@
+.orc-visual {
+  --diagram-bg: #202830;
+  width: 100%;
+  min-width: 0;
+  color: #b7c0c5;
+  background: var(--diagram-bg);
+  border: 1px solid #4b5357;
+}
+.orc-heading {
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #4b5357;
+}
+.orc-heading > span:last-child {
+  font-size: 25px;
+  line-height: 1;
+}
+.orc-heading .eyebrow {
+  font-size: 12px;
+  color: #d9dfe1;
+}
+.orc-circuit {
+  position: relative;
+  height: 355px;
+  margin: 0 12px;
+}
+.orc-pipes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.orc-pipe {
+  stroke: #59666d;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+.orc-flow {
+  stroke: #d72323;
+  stroke-width: 1.5;
+  stroke-dasharray: 5 12;
+  animation: fluid-flow 4s linear 1;
+  vector-effect: non-scaling-stroke;
+}
+@keyframes fluid-flow {
+  from {
+    stroke-dashoffset: 85;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.orc-part {
+  position: absolute;
+  top: 26%;
+  width: 46%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.part-evaporator,
+.part-pump {
+  left: 25%;
+}
+.part-expander,
+.part-condenser {
+  left: 75%;
+}
+.part-pump,
+.part-condenser {
+  top: 78%;
+}
+.orc-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--diagram-bg);
+  display: grid;
+  place-items: center;
+}
+.orc-icon svg {
+  width: 58px;
+  height: 58px;
+}
+.orc-part-name {
+  font-size: 13px;
+  line-height: 1.3;
+  text-align: center;
+  margin-top: 6px;
+  padding: 2px 5px;
+  background: var(--diagram-bg);
+  color: #c7d0d5;
+}
+.orc-part-note {
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 3px;
+  padding: 1px 4px;
+  background: var(--diagram-bg);
+  text-align: center;
+}
+.orc-part.is-active {
+  color: #f4f5f6;
+}
+.orc-part.is-active .orc-part-name {
+  color: white;
+}
+.orc-part.is-active .orc-icon {
+  border: 1px solid #d72323;
+}
+.orc-center-label {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #ccd3d7;
+  white-space: nowrap;
+}
+.orc-caption {
+  padding: 20px 26px;
+  border-top: 1px solid #4b5357;
+}
+.orc-caption > span {
+  font-size: 12px;
+  color: #f4f5f6;
+  letter-spacing: 0.04em;
+}
+.orc-caption p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #c7d0d5;
+}
+
+@media (max-width: 760px) {
+  .orc-circuit {
+    height: 330px;
+    margin-inline: 0;
+  }
+  .orc-heading,
+  .orc-caption {
+    padding: 18px;
+  }
+  .orc-part-name {
+    font-size: 12px;
+  }
+  .orc-part-note {
+    font-size: 10px;
+  }
+  .orc-center-label {
+    font-size: 10px;
+  }
+  .orc-caption {
+    min-height: 133px;
+  }
+}
+@media (max-width: 360px) {
+  .orc-part-name {
+    font-size: 11px;
+  }
+  .orc-part-note {
+    font-size: 9px;
+  }
+  .orc-heading .eyebrow {
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orc-flow {
+    animation: none;
+  }
+}

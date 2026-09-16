@@ -5,6 +5,9 @@ import App from "./App.jsx";
 import { pageForPath } from "./pages.js";
 import "./styles.css";
 import "./home-sections.css";
+import "./footer.css";
+import "./cycle-diagram.css";
+import "./home-refinements.css";
 
 const root = document.getElementById("root");
 const page = pageForPath(window.location.pathname);
