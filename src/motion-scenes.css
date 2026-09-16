@@ -1,0 +1,660 @@
+/* Motion study: energy pathways, a working ORC loop, and linked industries. */
+.scene-controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.scene-controls > span {
+  font-size: 12px;
+  color: var(--muted);
+}
+.scene-toggle {
+  flex-shrink: 0;
+  color: inherit;
+  background: transparent;
+  padding: 7px 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  font-size: 12px;
+  cursor: pointer;
+}
+.energy-canvas {
+  margin: 16px 0 10px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 52% 42%, #e3e8eb 0%, transparent 65%);
+}
+.energy-drawing {
+  width: 100%;
+  display: block;
+  overflow: visible;
+}
+.energy-mobile {
+  display: none;
+}
+.energy-guides path {
+  stroke: #bbc4cc;
+  stroke-width: 1.5;
+}
+.energy-stream {
+  stroke-width: 3;
+  stroke-dasharray: 7 15;
+  stroke-linecap: round;
+  animation: energy-travel 1.6s linear infinite;
+}
+.heat-stream {
+  stroke: var(--red);
+}
+.release-stream {
+  stroke: #7c8994;
+  animation-duration: 2.4s;
+}
+.power-stream {
+  stroke: var(--red);
+  transition: opacity 0.6s;
+}
+.source-frame {
+  fill: var(--graphite);
+  stroke: #46515c;
+}
+.source-wave {
+  stroke: #f0a1a1;
+  stroke-width: 2;
+  animation: heat-breathe 2.4s ease-in-out infinite;
+}
+.energy-label {
+  fill: var(--ink);
+  font-family: inherit;
+  font-size: 22px;
+  font-weight: 450;
+  letter-spacing: -0.6px;
+}
+.energy-sub {
+  fill: var(--muted);
+  font-family: inherit;
+  font-size: 15px;
+}
+.converter-frame {
+  fill: var(--graphite);
+  stroke: var(--red);
+  stroke-width: 2;
+  transition:
+    fill 0.6s,
+    stroke 0.6s;
+}
+.converter-rotor {
+  stroke: var(--silver);
+  stroke-width: 1.5;
+  animation: scene-turn 9s linear infinite;
+}
+.power-disc {
+  fill: var(--red);
+  transition: fill 0.6s;
+}
+.power-bolt {
+  stroke: white;
+  stroke-width: 1.6;
+}
+.power-halo {
+  stroke: var(--red);
+  stroke-width: 1;
+  opacity: 0.3;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: power-breathe 2.5s ease-out infinite;
+}
+.release-label circle {
+  fill: #7c8994;
+}
+.converter-node,
+.output-node {
+  transition: opacity 0.65s;
+}
+.without-recovery .converter-node,
+.without-recovery .output-node {
+  opacity: 0.32;
+}
+.without-recovery .recovery-stream,
+.without-recovery .power-stream {
+  opacity: 0;
+}
+.without-recovery .converter-frame,
+.without-recovery .power-disc {
+  fill: #63717d;
+  stroke: #63717d;
+}
+.without-recovery .converter-rotor,
+.without-recovery .power-halo {
+  animation: none;
+}
+.without-recovery .heat-stream {
+  stroke-dasharray: 7 15;
+}
+.pathway-footnote {
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+}
+.pathway-footnote p {
+  max-width: 590px;
+}
+.energy-guides path:last-child {
+  transition: opacity 0.6s;
+}
+.without-recovery .energy-guides path:last-child {
+  opacity: 0.3;
+}
+.technology-motion .cycle-layout {
+  grid-template-columns: 0.72fr 1.5fr;
+  gap: 48px;
+}
+.technology-motion .cycle-step {
+  padding: 23px 8px;
+  gap: 10px;
+  transition:
+    color 0.3s,
+    background 0.3s;
+}
+.technology-motion .cycle-step strong {
+  font-size: 23px;
+}
+.technology-motion .cycle-step > span:last-child {
+  transition: transform 0.3s;
+}
+.technology-motion .cycle-step.is-active > span:last-child {
+  transform: rotate(45deg);
+  color: #ef7676;
+}
+.dynamic-cycle {
+  background: radial-gradient(ellipse at 50% 48%, #29333c 0%, #1d242b 68%);
+  border: 1px solid #49535c;
+}
+.cycle-scene-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  color: #bdc6cd;
+  padding: 18px 24px;
+  border-bottom: 1px solid #ffffff15;
+}
+.cycle-scene-heading > span:last-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0;
+}
+.cycle-scene-heading i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+}
+.cycle-machine {
+  width: 100%;
+  display: block;
+}
+.cycle-track {
+  stroke: #485560;
+  stroke-width: 5;
+  stroke-linejoin: round;
+}
+.cycle-fluid {
+  stroke: #a5b6c2;
+  stroke-width: 2;
+  stroke-dasharray: 5 14;
+  animation: cycle-circulate 2s linear infinite;
+  transition:
+    stroke 0.5s,
+    stroke-width 0.5s;
+}
+.fluid-0,
+.fluid-1 {
+  stroke: #cf7272;
+}
+.cycle-fluid.fluid-active {
+  stroke: #ff8585;
+  stroke-width: 3;
+}
+.machine-part {
+  color: #aebac4;
+}
+.part-body {
+  fill: #232d35;
+  stroke: #6c7984;
+  stroke-width: 1.5;
+  transition:
+    stroke 0.45s,
+    fill 0.45s;
+}
+.part-active .part-body {
+  fill: #392b30;
+  stroke: #ef6666;
+  stroke-width: 2;
+}
+.part-aura {
+  stroke: #d72323;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.part-active .part-aura {
+  opacity: 0.4;
+}
+.machine-part path,
+.machine-rotor circle,
+.pump-rotor circle {
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+.machine-part.part-active {
+  color: #fff;
+}
+.machine-rotor {
+  animation: scene-turn 5s linear infinite;
+}
+.pump-rotor {
+  animation: scene-turn 9s linear infinite;
+}
+.evaporator-vapor {
+  animation: heat-breathe 2.4s ease-in-out infinite;
+}
+.evaporator-level {
+  stroke: #ef7777 !important;
+  stroke-width: 3 !important;
+}
+.condensate {
+  fill: #c1d0d9;
+  animation: condense 2s ease-in-out infinite;
+}
+.condensate:nth-last-child(2) {
+  animation-delay: -0.6s;
+}
+.condensate:last-child {
+  animation-delay: -1.2s;
+}
+.machine-label {
+  fill: #e1e6e9;
+  font-family: inherit;
+  font-size: 17px;
+  letter-spacing: -0.2px;
+}
+.machine-number {
+  fill: #7f909e;
+  font-family: inherit;
+  font-size: 12px;
+}
+.part-active .machine-number {
+  fill: #ff9292;
+}
+.external-flow {
+  opacity: 0.35;
+  transition: opacity 0.5s;
+}
+.external-flow path {
+  stroke: #adbbc5;
+  stroke-width: 2;
+  stroke-dasharray: 4 9;
+  animation: external-travel 1.4s linear infinite;
+}
+.external-flow text {
+  fill: #b6c2cb;
+  font-family: inherit;
+  font-size: 14px;
+}
+.external-active {
+  opacity: 1;
+}
+.external-heat path,
+.external-power path {
+  stroke: #f06464;
+}
+.external-active text {
+  fill: #fff;
+}
+.cycle-center text {
+  fill: #899aa7;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+}
+.cycle-center .cycle-phase {
+  fill: #e2e7eb;
+  font-size: 15px;
+  letter-spacing: 0;
+}
+.dynamic-cycle-caption {
+  border-top: 1px solid #ffffff15;
+  padding: 19px 24px 22px;
+  min-height: 112px;
+  animation: caption-enter 0.4s ease both;
+}
+.dynamic-cycle-caption > span {
+  font-size: 12px;
+  color: #ef9a9a;
+}
+.dynamic-cycle-caption p {
+  margin-top: 8px;
+  font-size: 15px;
+  color: #d3d9df;
+  max-width: 610px;
+}
+.cycle-scene-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  align-items: center;
+  justify-content: space-between;
+  color: #a7b3bd;
+  margin-top: 24px;
+  font-size: 12px;
+}
+.scroll-cycle-hint {
+  display: none;
+}
+.orbit-connections {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.orbit-connections path {
+  stroke: #8d9ba6;
+  stroke-width: 0.2;
+  opacity: 0.25;
+}
+.orbit-connections .connection-active {
+  stroke: var(--red);
+  stroke-width: 0.5;
+  opacity: 1;
+  stroke-dasharray: 1.5 2;
+  animation: orbit-energy 2.4s linear infinite;
+}
+.orbit-center {
+  box-shadow:
+    0 0 0 8px #191e2307,
+    0 0 0 17px #191e2304;
+}
+.orbit-center strong {
+  animation: center-response 0.8s ease;
+}
+.orbit-node {
+  transition:
+    transform 0.45s,
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+.orbit-node.is-active {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 0 1px var(--red),
+    0 12px 30px #19222b20;
+}
+.orbit-node img {
+  transition: filter 0.5s;
+}
+.orbit-node:not(.is-active) img {
+  filter: saturate(0.65);
+}
+.orbit-connections path {
+  animation-play-state: paused;
+}
+.is-running .orbit-connections path {
+  animation-play-state: running;
+}
+.industry-orbit:hover .orbit-connections path,
+.industry-orbit:focus-within .orbit-connections path {
+  animation-play-state: paused;
+}
+.motion-scene .energy-stream,
+.motion-scene .source-wave,
+.motion-scene .converter-rotor,
+.motion-scene .power-halo,
+.motion-scene .cycle-fluid,
+.motion-scene .machine-rotor,
+.motion-scene .pump-rotor,
+.motion-scene .evaporator-vapor,
+.motion-scene .condensate,
+.motion-scene .external-flow path {
+  animation-play-state: paused;
+}
+.scene-running .energy-stream,
+.scene-running .source-wave,
+.scene-running .converter-rotor,
+.scene-running .power-halo,
+.scene-running .cycle-fluid,
+.scene-running .machine-rotor,
+.scene-running .pump-rotor,
+.scene-running .evaporator-vapor,
+.scene-running .condensate,
+.scene-running .external-flow path {
+  animation-play-state: running;
+}
+@keyframes energy-travel {
+  to {
+    stroke-dashoffset: -44;
+  }
+}
+@keyframes cycle-circulate {
+  to {
+    stroke-dashoffset: -38;
+  }
+}
+@keyframes external-travel {
+  to {
+    stroke-dashoffset: -26;
+  }
+}
+@keyframes scene-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes heat-breathe {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes power-breathe {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(1.23);
+    opacity: 0;
+  }
+}
+@keyframes condense {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes caption-enter {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes center-response {
+  0% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes orbit-energy {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+@media (min-width: 1000px) and (min-height: 720px) and (prefers-reduced-motion: no-preference) {
+  .energy-story .technology-motion {
+    padding-block: 40px;
+    min-height: 190svh;
+  }
+  .technology-stage {
+    position: sticky;
+    top: 28px;
+  }
+  .technology-motion .technology-opening {
+    margin-bottom: 28px;
+  }
+  .technology-motion .technology-opening h2 {
+    font-size: 58px;
+    margin-top: 12px;
+  }
+  .technology-motion .technology-opening > p {
+    font-size: 17px;
+  }
+  .technology-motion .cycle-machine {
+    max-height: min(50svh, 440px);
+  }
+  .technology-motion .cycle-step {
+    padding-block: 20px;
+  }
+  .technology-motion .cycle-scene-heading {
+    padding-block: 12px;
+  }
+  .technology-motion .dynamic-cycle-caption {
+    padding-block: 14px;
+    min-height: 96px;
+  }
+  .technology-motion .cycle-scene-footer {
+    margin-top: 12px;
+  }
+  .scroll-cycle-hint {
+    display: inline;
+  }
+}
+@media (max-width: 999px) {
+  .technology-motion .cycle-layout {
+    gap: 24px;
+    grid-template-columns: 0.75fr 1.3fr;
+  }
+  .technology-motion .cycle-step {
+    grid-template-columns: 25px 1fr;
+    padding: 20px 4px;
+  }
+  .technology-motion .cycle-step > span:last-child {
+    display: none;
+  }
+  .technology-motion .cycle-step strong {
+    font-size: 19px;
+  }
+  .pathway-footnote {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 760px) {
+  .energy-desktop {
+    display: none;
+  }
+  .energy-mobile {
+    display: block;
+  }
+  .energy-canvas {
+    margin-top: 30px;
+  }
+  .energy-label {
+    font-size: 20px;
+  }
+  .energy-sub {
+    font-size: 16px;
+  }
+  .technology-motion .cycle-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .technology-motion .cycle-steps {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .technology-motion .cycle-step {
+    align-items: start;
+    grid-template-columns: 24px 1fr;
+    padding: 16px 7px;
+  }
+  .technology-motion .cycle-step strong {
+    font-size: 17px;
+  }
+  .technology-motion .cycle-step > span > span {
+    font-size: 12px;
+  }
+  .technology-motion #cycle-explanation {
+    width: 100%;
+  }
+  .cycle-scene-heading {
+    padding: 16px 14px;
+    font-size: 10px;
+    gap: 8px;
+  }
+  .cycle-machine {
+    min-height: 230px;
+  }
+  .machine-label {
+    font-size: 22px;
+  }
+  .machine-number {
+    font-size: 20px;
+  }
+  .external-flow text {
+    font-size: 20px;
+  }
+  .cycle-center text {
+    font-size: 15px;
+    letter-spacing: 0;
+  }
+  .cycle-center .cycle-phase {
+    font-size: 18px;
+  }
+  .dynamic-cycle-caption {
+    padding: 18px;
+    min-height: 145px;
+  }
+  .dynamic-cycle-caption p {
+    font-size: 14px;
+  }
+  .cycle-scene-footer {
+    gap: 12px;
+  }
+  .cycle-scene-footer > span {
+    width: 100%;
+  }
+  .pathway-footnote {
+    gap: 16px;
+  }
+  .scene-controls {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-scene *,
+  .orbit-connections path,
+  .orbit-center strong {
+    animation: none !important;
+    transition: none !important;
+  }
+  .orbit-node {
+    transition: none;
+  }
+  .power-halo {
+    opacity: 0.3;
+  }
+}

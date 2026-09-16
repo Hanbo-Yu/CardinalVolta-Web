@@ -1,10 +1,14 @@
 import { useState } from "react";
+import EnergyScene from "./EnergyScene.jsx";
+import useSceneMotion from "./useSceneMotion.js";
 
 export default function Opportunity() {
   const [recovery, setRecovery] = useState(true);
+  const motion = useSceneMotion();
   return (
     <section
-      className="opportunity opportunity-pathway"
+      ref={motion.ref}
+      className={`opportunity opportunity-pathway motion-scene ${motion.running ? "scene-running" : ""}`}
       aria-labelledby="opportunity-title"
     >
       <div className="shell">
@@ -42,67 +46,24 @@ export default function Opportunity() {
             </button>
           </div>
         </div>
-        <div
-          className={`heat-pathway ${recovery ? "has-recovery" : ""}`}
-          role="img"
-          aria-label={
-            recovery
-              ? "Industrial process releases waste heat. Some is recovered and converted into electricity; remaining heat is released."
-              : "Industrial process releases waste heat, which is released without electricity recovery."
-          }
-        >
-          <svg
-            className="pathway-lines"
-            viewBox="0 0 1200 220"
-            preserveAspectRatio="none"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              className="pathway-base"
-              d="M130 64H430Q450 64 450 90V180H850"
-            />
-            <path
-              className="pathway-base pathway-recovery-base"
-              d="M450 64H1080"
-            />
-            <path
-              className="pathway-live"
-              key={String(recovery)}
-              pathLength="1"
-              d="M130 64H1080"
-            />
-          </svg>
-          <div className="pathway-node pathway-process">
-            <span>01 / Source</span>
-            <strong>Industrial process</strong>
-          </div>
-          <div className="pathway-node pathway-heat">
-            <span>02 / Resource</span>
-            <strong>Waste heat</strong>
-          </div>
-          <div className="pathway-node pathway-recovery">
-            <span>03 / Conversion</span>
-            <strong>Heat recovery</strong>
-          </div>
-          <div className="pathway-node pathway-power">
-            <span>04 / Output</span>
-            <strong>
-              Electricity <span aria-hidden="true">↗</span>
-            </strong>
-          </div>
-          <span className="pathway-release">
-            {recovery ? "Remaining heat released" : "Heat released"}{" "}
-            <span aria-hidden="true">↘</span>
-          </span>
-        </div>
+        <EnergyScene recovery={recovery} />
         <div className="pathway-footnote">
           <p aria-live="polite">
             {recovery
               ? "Recovery creates another route for part of the heat leaving an industrial process."
               : "Without recovery, this heat leaves the process without generating electricity."}
           </p>
-          <span>Illustrative energy pathway</span>
+          <div className="scene-controls">
+            <span>Illustrative · Not to scale</span>
+            <button
+              className="scene-toggle"
+              type="button"
+              aria-pressed={motion.paused}
+              onClick={motion.toggle}
+            >
+              {motion.paused ? "Resume animation" : "Pause animation"}
+            </button>
+          </div>
         </div>
       </div>
     </section>

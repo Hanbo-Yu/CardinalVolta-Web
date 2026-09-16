@@ -1,6 +1,5 @@
-import { useState } from "react";
-import IndustryOrbit from "./IndustryOrbit.jsx";
-import { industries, partners, focusAreas } from "./home-content.js";
+import IndustryGallery from "./IndustryGallery.jsx";
+import { partners, focusAreas } from "./home-content.js";
 import { newsItems } from "./content.js";
 import { SampleLabel } from "./News.jsx";
 
@@ -77,11 +76,9 @@ export function FocusStory() {
 }
 
 export function IndustryExplorer() {
-  const [active, setActive] = useState(industries[0].id);
-  const [open, setOpen] = useState(true);
   return (
     <section
-      className="industry-explorer"
+      className="industry-explorer industry-gallery-section"
       id="applications"
       aria-labelledby="applications-title"
     >
@@ -98,73 +95,8 @@ export function IndustryExplorer() {
             energy-intensive industries.
           </p>
         </div>
-        <div className="industry-layout">
-          <IndustryOrbit
-            active={active}
-            onSelect={(id) => {
-              setActive(id);
-              setOpen(true);
-            }}
-          />
-          <div className="industry-drawers">
-            {industries.map((item) => {
-              const expanded = active === item.id && open;
-              return (
-                <div
-                  className={`industry-drawer ${expanded ? "is-active" : ""}`}
-                  key={item.id}
-                >
-                  <h3>
-                    <button
-                      type="button"
-                      id={`industry-button-${item.id}`}
-                      aria-expanded={expanded}
-                      aria-controls={`industry-panel-${item.id}`}
-                      onClick={() => {
-                        setActive(item.id);
-                        setOpen(!expanded);
-                      }}
-                    >
-                      {item.name}
-                      <span className="drawer-symbol" aria-hidden="true" />
-                    </button>
-                  </h3>
-                  <div
-                    className="industry-panel"
-                    id={`industry-panel-${item.id}`}
-                    role="region"
-                    aria-labelledby={`industry-button-${item.id}`}
-                    inert={!expanded}
-                    aria-hidden={!expanded}
-                  >
-                    <div className="industry-panel-inner">
-                      <figure className="drawer-inline-visual">
-                        <img
-                          src={`/assets/${item.image}-640.webp`}
-                          alt={item.alt}
-                          loading="lazy"
-                          width="640"
-                          height="480"
-                          style={{ objectPosition: item.position }}
-                        />
-                        <figcaption>{item.theme} · Industry imagery</figcaption>
-                      </figure>
-                      <h4>{item.title}</h4>
-                      <p>{item.description}</p>
-                      <a
-                        href="mailto:info@cardinalvolta.com"
-                        className="industry-enquiry"
-                      >
-                        Discuss an application <span aria-hidden="true">↗</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
       </div>
+      <IndustryGallery />
     </section>
   );
 }

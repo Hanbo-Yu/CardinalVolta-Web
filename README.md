@@ -98,3 +98,19 @@ On phones, each industry image moves inside its own drawer so it stays next to t
 SiteLayout.jsx contains the shared footer. footer.css controls the invitation, left-aligned 280px official logo, three desktop information columns, responsive layout and hover motion. cardinal-volta-logo-footer.svg preserves the original symbol and letter shapes, uses the approved light wordmark, and removes only the transparent outer margin.
 
 The phone number and office-address line are visual placeholders. footerSocials and footerLegal have null destinations; replace null with actual URLs when ready. Unset destinations appear as disabled link text and do not navigate to invented accounts or empty policy pages. The email, internal navigation, brand home link and back-to-top link are functional. The footer is shared by the homepage, news and article pages.
+
+## Motion study — September 16
+
+The opportunity section now uses an animated, illustrative energy scene with recovery on/off states and a separate heat-release branch. EnergyScene.jsx supplies desktop and mobile compositions; it does not encode measured efficiency or energy proportions.
+
+Technology uses DynamicCycle.jsx for the working-fluid loop, separate heat/power/cooling connections, and four highlighted stages. On desktop viewports at least 1000 × 720, a short sticky chapter advances stages with scrolling; all stages remain directly selectable. Smaller screens and reduced-motion preferences retain normal page flow. useSceneMotion.js pauses scene motion offscreen, when the tab is hidden, or when reduced motion is preferred. Each scene also has a persistent manual pause control.
+
+Industry selection highlights a connection to the center and pauses the orbit until explicitly resumed. motion-scenes.css is loaded after home-refinements.css. The perspective cards and their content are unchanged; this is a local design trial, not a published update.
+
+### Industry gallery refinement
+
+IndustryOrbit.jsx now places bare image crops on a shallow perspective ellipse, with depth-dependent size and contrast. The large center disc, image caption bars and prominent circular rings have been removed. A stationary footer identifies the hovered, focused or selected industry. Selecting an image or opening an industry drawer brings that image to the foreground along the shortest arc and pauses rotation. Resume motion continues from that position. Hover, keyboard focus, hidden tabs and offscreen scenes suspend automatic rotation; reduced-motion users get immediate selection changes. industry-gallery.css contains the new gallery styling. Existing drawer copy and mobile inline imagery remain intact.
+
+### Current industry direction: expanding image panels
+
+IndustryGallery.jsx now presents four connected panels within the page container. Desktop panels share a compact 400px height (440px on large screens); hovering, clicking or keyboard focus expands one panel while the others remain visible. Image-inset titles and existing descriptions replace separate text blocks. Mobile uses four stacked rows with one expanded image panel. Arrow keys and Home/End move focus and selection. Reduced-motion preferences disable panel transitions. This replaces the scrolling gallery, so no horizontal endpoint or automatic motion remains. Embla dependencies are retained from the earlier trial but are not imported by the current page.

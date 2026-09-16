@@ -8,6 +8,8 @@ import "./home-sections.css";
 import "./footer.css";
 import "./cycle-diagram.css";
 import "./home-refinements.css";
+import "./motion-scenes.css";
+import "./industry-gallery.css";
 
 const root = document.getElementById("root");
 const page = pageForPath(window.location.pathname);
